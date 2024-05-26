@@ -45,5 +45,12 @@ namespace MultiShop.Catalog.Controllers
             return Ok("Categori Silme işlemi başarılı");
         }
 
+        [HttpPut]
+        public async Task<IActionResult> UpdateCategory(UpdateCategoryDto updateCategory) 
+        {
+           await _categoryService.UpdateCategoryAsync(updateCategory);
+            return Ok("Categori güncelleme başarılı");
+        }
+
     }
 }

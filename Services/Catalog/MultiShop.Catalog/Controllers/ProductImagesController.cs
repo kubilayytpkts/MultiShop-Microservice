@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.Catalog.Dtos.CategoryDtos;
+using MultiShop.Catalog.Dtos.ProductDetailDtos;
 using MultiShop.Catalog.Dtos.ProductImageDtos;
 using MultiShop.Catalog.Services.CategoryService;
 using MultiShop.Catalog.Services.ProductImageService;
@@ -45,6 +46,13 @@ namespace MultiShop.Catalog.Controllers
         {
             _productImageService.DeleteProductImageAsync(id);
             return Ok("Ürün Silme işlemi başarılı");
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateProductDetailImage(UpdateProductImageDto updateProductImage)
+        {
+            await _productImageService.UpdateProductImageAsync(updateProductImage);
+            return Ok("Ürün resim güncelleme başarılı");
         }
 
     }

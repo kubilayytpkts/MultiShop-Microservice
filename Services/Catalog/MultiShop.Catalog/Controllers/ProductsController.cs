@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.Catalog.Dtos.CategoryDtos;
 using MultiShop.Catalog.Dtos.ProductDtos;
+using MultiShop.Catalog.Dtos.ProductImageDtos;
 using MultiShop.Catalog.Services.CategoryService;
 using MultiShop.Catalog.Services.ProductService;
 
@@ -44,6 +45,13 @@ namespace MultiShop.Catalog.Controllers
         {
             _productService.DeleteProductAsync(id);
             return Ok("Categori Silme işlemi başarılı");
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateProduct(UpdateProductDto updateProduct)
+        {
+            await _productService.UpdateProductAsync(updateProduct);
+            return Ok("Ürün güncelleme başarılı");
         }
 
     }
