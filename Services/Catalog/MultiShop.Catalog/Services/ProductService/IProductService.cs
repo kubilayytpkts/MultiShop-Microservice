@@ -7,6 +7,9 @@ namespace MultiShop.Catalog.Services.ProductService
     {
         Task<List<ResultProductDto>> GetAllProductAsync();
         Task CreateProductAsync(CreateProductDto createProductDto);
+
+        Task<GetByIdProductDto> GetProductById(string id);
+
         Task UpdateProductAsync(UpdateProductDto updateProductDto);
         Task DeleteProductAsync(string id);
     }
