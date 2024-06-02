@@ -45,14 +45,14 @@ namespace MultiShop.Catalog.Controllers
         public async Task<IActionResult> DeleteProductImage(string id)
         {
             _productImageService.DeleteProductImageAsync(id);
-            return Ok("Ürün Silme işlemi başarılı");
+            return Ok("Ürün resmi Silme işlemi başarılı");
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateProductDetailImage(UpdateProductImageDto updateProductImage)
         {
             await _productImageService.UpdateProductImageAsync(updateProductImage);
-            return Ok("Ürün resim güncelleme başarılı");
+            return Ok("Ürün resmi güncelleme başarılı");
         }
 
     }

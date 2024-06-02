@@ -23,7 +23,7 @@ namespace MultiShop.Catalog.Services.ProductImageService
 
         public async Task CreateProductImageAsync(CreateProductImageDto createProductImageDto)
         {
-            var value = _mapper.Map<ProductImage>(createProductImageDto);
+            var value =_mapper.Map<ProductImage>(createProductImageDto);
             await _productImageCollection.InsertOneAsync(value);
         }
 
