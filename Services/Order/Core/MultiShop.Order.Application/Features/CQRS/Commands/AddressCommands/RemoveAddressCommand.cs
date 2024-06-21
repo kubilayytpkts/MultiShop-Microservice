@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Order.Application.Features.CQRS.Queries.AddressQueries
+namespace MultiShop.Order.Application.Features.CQRS.Commands.AddressCommands
 {
-    public class GetAddressByIdQuery
+    public class RemoveAddressCommand
     {
         public int ID { get; set; }
 
-        public GetAddressByIdQuery(int id)
+        public RemoveAddressCommand(int id)
         {
             ID = id;
         }

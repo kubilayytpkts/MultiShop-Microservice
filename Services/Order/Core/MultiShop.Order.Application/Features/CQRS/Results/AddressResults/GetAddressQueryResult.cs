@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace MultiShop.Order.Application.Features.CQRS.Results.AddressResults
 {
-    internal class GetAddressQueryResult
+    public class GetAddressQueryResult
     {
+        public int AddressID { get; set; }
+        public string UserID { get; set; }
+        public string Discrit { get; set; }
+        public string City { get; set; }
+        public string Detail { get; set; }
     }
 }

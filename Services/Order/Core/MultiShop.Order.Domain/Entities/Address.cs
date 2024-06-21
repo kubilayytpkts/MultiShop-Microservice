@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,5 +9,10 @@ namespace MultiShop.Order.Domain.Entities
 {
     public class Address
     {
+        public int AddressID { get; set; }
+        public string UserID { get; set; }
+        public string Discrit { get; set; }
+        public string City { get; set; }
+        public string Detail { get; set; }
     }
 }
