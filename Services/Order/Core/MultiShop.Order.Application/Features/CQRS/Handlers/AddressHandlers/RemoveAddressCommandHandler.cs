@@ -1,4 +1,5 @@
-﻿using MultiShop.Order.Application.Features.CQRS.Results.AddressResults;
+﻿using MultiShop.Order.Application.Features.CQRS.Commands.AddressCommands;
+using MultiShop.Order.Application.Features.CQRS.Results.AddressResults;
 using MultiShop.Order.Application.Interfaces;
 using MultiShop.Order.Domain.Entities;
 using System;
@@ -17,9 +18,9 @@ namespace MultiShop.Order.Application.Features.CQRS.Handlers.AddressHandlers
         {
             _repository = repository;
         }
-        public async Task Handle(GetAddressByIdQueryResult query)
+        public async Task Handle(RemoveAddressCommand query)
         {
-            var value = await _repository.GetByIdAsync(query.AddressID);
+            var value = await _repository.GetByIdAsync(query.ID);
 
             if(value is not null)
             {
