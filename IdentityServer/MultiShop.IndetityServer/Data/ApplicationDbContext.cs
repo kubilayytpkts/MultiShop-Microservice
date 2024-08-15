@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using MultiShop.IdentityServer.Models;
+using MultiShop.IndetityServer.Models;
 
-namespace MultiShop.IdentityServer.Data
+namespace MultiShop.IndetityServer.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

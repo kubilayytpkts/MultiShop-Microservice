@@ -53,7 +53,7 @@ namespace MultiShop.Order.WebApi.Controllers
             var value =await _getAddressQueryHandler.Handle();
             return Ok(value);
         }
-
+            
         [HttpGet("{id}")]
         public async Task<IActionResult> GetAddressById(int id)
         {

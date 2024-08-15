@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MultiShop.IdentityServer.Migrations
+namespace MultiShop.IndetityServer.Migrations
 {
     public partial class mig1 : Migration
     {

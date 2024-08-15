@@ -3,8 +3,8 @@
 
 
 using IdentityServer4;
-using MultiShop.IdentityServer.Data;
-using MultiShop.IdentityServer.Models;
+using MultiShop.IndetityServer.Data;
+using MultiShop.IndetityServer.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -13,7 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace MultiShop.IdentityServer
+namespace MultiShop.IndetityServer
 {
     public class Startup
     {
@@ -49,7 +49,7 @@ namespace MultiShop.IdentityServer
             })
                 .AddInMemoryIdentityResources(Config.IdentityResources)
                 .AddInMemoryApiScopes(Config.ApiScopes)
-                .AddInMemoryClients(Config.Clients)
+                //.AddInMemoryClients(Config.Clients)
                 .AddAspNetIdentity<ApplicationUser>();
 
             // not recommended for production - you need to store your key material somewhere secure
