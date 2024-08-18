@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace MultiShop.Cargo.EntityLayer.Concrete
 {
-    public class CargoCompany
+    public class CargoOperations
     {
         [Key]
-        public int CompanyId { get; set; }
-        public string CompanyName { get; set; }
-
+        public int CargoOperationId { get; set; }
+        public string Barcode { get; set; }
+        public string Description { get; set; }
+        public DateTime OperationDate { get; set; }
     }
 }
