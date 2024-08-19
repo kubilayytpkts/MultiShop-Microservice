@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{B5D8A3C9-D160-4EAF-9656-F2EBCD533A4D}"
+	ProjectSection(SolutionItems) = preProject
+		api-port.txt = api-port.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{6C5481E5-01C2-4DB5-A30F-F5E0C6AA8E00}"
 EndProject
@@ -35,15 +38,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiShop.IndetityServer", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cargo", "Cargo", "{44F4C83B-190E-4A5E-BCC5-ABF0DED5ACC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.Cargo.EntityLayer", "Services\Cargo\MultiShop.Cargo.EntityLayer\MultiShop.Cargo.EntityLayer.csproj", "{02B4FB14-27A1-4ED9-B0D4-84976BE66AEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiShop.Cargo.EntityLayer", "Services\Cargo\MultiShop.Cargo.EntityLayer\MultiShop.Cargo.EntityLayer.csproj", "{02B4FB14-27A1-4ED9-B0D4-84976BE66AEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.Cargo.BusinessLogicLayer", "Services\Cargo\MultiShop.Cargo.BusinessLogicLayer\MultiShop.Cargo.BusinessLogicLayer.csproj", "{8B0351C2-54AB-489B-BA1C-046E023808AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiShop.Cargo.BusinessLogicLayer", "Services\Cargo\MultiShop.Cargo.BusinessLogicLayer\MultiShop.Cargo.BusinessLogicLayer.csproj", "{8B0351C2-54AB-489B-BA1C-046E023808AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSop.Cargo.DataAccessLayer", "Services\Cargo\MultiSop.Cargo.DataAccessLayer\MultiSop.Cargo.DataAccessLayer.csproj", "{7D75286D-06B8-416F-A8AA-42965DC069E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSop.Cargo.DataAccessLayer", "Services\Cargo\MultiSop.Cargo.DataAccessLayer\MultiSop.Cargo.DataAccessLayer.csproj", "{7D75286D-06B8-416F-A8AA-42965DC069E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSop.Cargo.DtosLayer", "Services\Cargo\MultiSop.Cargo.Dtos\MultiSop.Cargo.DtosLayer.csproj", "{7EF0BA7A-26ED-481A-8256-7DAEC1FE603C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSop.Cargo.DtosLayer", "Services\Cargo\MultiSop.Cargo.Dtos\MultiSop.Cargo.DtosLayer.csproj", "{7EF0BA7A-26ED-481A-8256-7DAEC1FE603C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.Cargo.WebApi", "Services\Cargo\MultiShop.Cargo.WebApi\MultiShop.Cargo.WebApi.csproj", "{C22D8966-FCB8-4A55-A617-F1CF6ECCBF3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiShop.Cargo.WebApi", "Services\Cargo\MultiShop.Cargo.WebApi\MultiShop.Cargo.WebApi.csproj", "{C22D8966-FCB8-4A55-A617-F1CF6ECCBF3C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{A9C32925-FA63-4B5C-BAE7-869FF76AA261}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,6 +128,7 @@ Global
 		{7D75286D-06B8-416F-A8AA-42965DC069E7} = {44F4C83B-190E-4A5E-BCC5-ABF0DED5ACC5}
 		{7EF0BA7A-26ED-481A-8256-7DAEC1FE603C} = {44F4C83B-190E-4A5E-BCC5-ABF0DED5ACC5}
 		{C22D8966-FCB8-4A55-A617-F1CF6ECCBF3C} = {44F4C83B-190E-4A5E-BCC5-ABF0DED5ACC5}
+		{A9C32925-FA63-4B5C-BAE7-869FF76AA261} = {B5D8A3C9-D160-4EAF-9656-F2EBCD533A4D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6CE0EEF1-2A9E-43BE-80BE-A57D9829F168}

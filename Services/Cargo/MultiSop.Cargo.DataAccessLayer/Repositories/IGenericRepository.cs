@@ -37,11 +37,13 @@ namespace MultiSop.Cargo.DataAccessLayer.Repositories
         public void Insert(T entity)
         {
             _dbContext.Set<T>().Add(entity);
+            _dbContext.SaveChanges();
         }
 
         public void Update(T entity)
         {
             _dbContext.Set<T>().Update(entity);
+            _dbContext.SaveChanges();
         }
     }
 }

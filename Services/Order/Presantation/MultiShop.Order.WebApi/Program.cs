@@ -19,8 +19,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<OrderDbContext>();
 
@@ -46,8 +44,8 @@ builder.Services.AddScoped<DeleteOrderingHandler>();
 builder.Services.AddScoped<GetOrderingByIdHandler>();
 builder.Services.AddScoped<GetOrderDetailQueryHandler>();
 
-
-
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
