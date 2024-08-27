@@ -33,9 +33,11 @@ namespace MultiShop.Basket.Controllers
             _basketService.DeleteBasket(_loginService.GetUserId);
             return Ok("Sepet Silme işlemi başarılı");
         }
+
         [HttpGet]
         public async Task<IActionResult> GetMyBasket()
         {
+            var user = User.Claims;
             var userBasket = _basketService.GetBasket(_loginService.GetUserId);
             return Ok(userBasket);    
         }
