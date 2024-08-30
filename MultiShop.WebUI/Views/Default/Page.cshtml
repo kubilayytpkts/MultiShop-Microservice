@@ -4,5 +4,14 @@
     Layout = "~/Views/Layout/_UILayout.cshtml";
 }
 
-<h1>Page</h1>
+@await Component.InvokeAsync("_CarosuelDefaultComponentPartial")
 
+@await Component.InvokeAsync("_FeatureDefaultComponentPartial")
+
+@await Component.InvokeAsync("_CategoriesDefaultComponentPartial")
+
+@await Component.InvokeAsync("_FeatureProductsComponentPartial")
+
+@await Component.InvokeAsync("_OfferDiscountComponentPartial")
+
+@await Component.InvokeAsync("_VendorDefaultComponentPartial")
