@@ -38,7 +38,7 @@ namespace MultiShop.Basket.Controllers
         public async Task<IActionResult> GetMyBasket()
         {
             var user = User.Claims;
-            var userBasket = _basketService.GetBasket(_loginService.GetUserId);
+            var userBasket =await _basketService.GetBasket(_loginService.GetUserId);
             return Ok(userBasket);    
         }
     }
