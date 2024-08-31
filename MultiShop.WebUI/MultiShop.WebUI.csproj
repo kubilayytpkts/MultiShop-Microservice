@@ -29,4 +29,8 @@
     <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Frontend\MultiShop.Dtos\MultiShop.Dtos.csproj" />
+  </ItemGroup>
+
 </Project>

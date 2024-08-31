@@ -1,6 +1,39 @@
-﻿
+﻿@using MultiShop.Dtos.CategoryDto
+@model List<ResultCategoryDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Layout/Admin.cshtml";
 }
 
+<div class="col-md-12">
+    <div class="chart-box">
+        <h4>Kategori Listesi</h4>
+        <p>Kategori ile alakalı işlemlerinizi tablo üzerinden gerçekleştirebilirsiniz.</p>
+        <div class="bs-example" data-example-id="bordered-table">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Kategori Adı</th>
+                        <th>Kategoriye Ait Ürünler</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.CategoryID</th>
+                            <td>@item.CategoryName</td>
+                            <td><a class="btn btn-success">Kategoriye ait ürünler</a></td>
+                            <td><a class="btn btn-primary">Düzenle</a></td>
+                            <td><a class="btn btn-warning">Sil</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
