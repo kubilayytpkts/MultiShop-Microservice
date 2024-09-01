@@ -1,0 +1,33 @@
+﻿@using MultiShop.Dtos.CategoryDto
+@model CreateCategoryDto
+
+@{
+    ViewData["Title"] = "CreateCategory";
+    Layout = "~/Areas/Admin/Views/Layout/Admin.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="chart-box">
+        <h4>Kategori Listesi</h4>
+        <p>Kategori ile alakalı işlemlerinizi tablo üzerinden gerçekleştirebilirsiniz.</p>
+        
+        <!-- Main content -->
+        <section class="content container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="chart-box">
+                        <form method="post">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="CategoryName" name="CategoryName" placeholder="Kategori Adı">
+                            </div>
+                            <button type="submit" class="btn btn-success">Ekle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- content -->    
+    </div>
+</div>
+
+
