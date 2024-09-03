@@ -1,9 +1,9 @@
-﻿@using MultiShop.Dtos.CategoryDto
-@model List<ResultCategoryDto>
+﻿@using MultiShop.Dtos.ProductDtos
+@model List<ProductResultDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Layout/Admin.cshtml";
-    int count = 0;
+    var count = 0;
 }
 
 <div class="col-md-12">
@@ -14,19 +14,19 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Kategori Adı</th>
+                        <th>Ürün Adı</th>
                         <th>Düzenle</th>
                         <th>Sil</th>
-                        
+
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model )
+                    @foreach (var item in Model)
                     {
                         count++;
                         <tr>
                             <th scope="row">@count</th>
-                            <td>@item.CategoryName</td>
+                            <td>@item.ProductName</td>
                             <td><a class="btn btn-primary" href="/Admin/Category/UpdateCategory/@item.CategoryID">Düzenle</a></td>
                             <td>
                                 <a class="btn btn-warning" href="/Admin/Category/DeleteCategory/@item.CategoryID">Sil</a>
@@ -36,9 +36,9 @@
                     }
                 </tbody>
             </table>
-      
-            </div>
-        <a href="/Admin/Category/CreateCategory/" class="btn btn-primary">Kategori Ekle</a>
+
+        </div>
+        <a href="/Admin/Product/CreateProduct/" class="btn btn-primary">Ürün Ekle</a>
     </div>
 </div>
 

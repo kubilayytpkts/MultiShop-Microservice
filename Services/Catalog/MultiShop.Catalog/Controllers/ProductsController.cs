@@ -9,9 +9,9 @@ using MultiShop.Catalog.Services.ProductService;
 
 namespace MultiShop.Catalog.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
