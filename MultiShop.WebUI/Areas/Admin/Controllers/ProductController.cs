@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using MultiShop.Dtos.CategoryDto;
 using MultiShop.Dtos.ProductDtos;
 using Newtonsoft.Json;
+using NuGet.Protocol;
 using System.Text;
 
 namespace MultiShop.WebUI.Areas.Admin.Controllers
@@ -39,22 +40,8 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [Route("CreateProduct")]
         public async Task<IActionResult> CreateProduct()
         {
-            var client = _httpClientFactory.CreateClient();
-            var messageResponse =await client.GetAsync("https://localhost:7000/api/Categories");
-            if(messageResponse.IsSuccessStatusCode)
-            {
-                var jsonData =await messageResponse.Content.ReadAsStringAsync();
-                var stringData = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
+            ViewData["CategoryList"] = await GetCategoriesHelperMethod(null);
 
-                List<SelectListItem> selectListItems = (from x in stringData
-                                                        select new SelectListItem
-                                                        {
-                                                            Text = x.CategoryName,
-                                                            Value = x.CategoryID,
-                                                        }).ToList();
-
-                ViewData["CategoryList"]= selectListItems;
-            }
             return View();
         }
 
@@ -64,11 +51,11 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         {
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createProduct);
-            var stingContent = new StringContent(jsonData,Encoding.UTF8, "application/json");
+            var stingContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
             var responseMessage = await client.PostAsync("https://localhost:7000/api/Products/", stingContent);
             if (responseMessage.IsSuccessStatusCode)
             {
-               return Redirect("/Admin/Product/Index");
+                return Redirect("/Admin/Product/Index");
             }
             return Redirect("Index");
         }
@@ -82,12 +69,60 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var stringData = JsonConvert.DeserializeObject<ProductResultDto>(jsonData);
+                var stringData = JsonConvert.DeserializeObject<UpdateProductDto>(jsonData);
 
+                ViewData["CategoryList"] = await GetCategoriesHelperMethod(stringData.ProductID);
                 return View(stringData);
             }
 
             return View();
+        }
+
+        [HttpPost]
+        [Route("UpdateProduct/{id}")]
+        public async Task<IActionResult> UpdateProduct(UpdateProductDto updateProduct)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(updateProduct);
+            var stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("https://localhost:7000/api/Products/", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return Redirect("/Admin/Product/Index");
+            }
+            return View();
+        }
+
+
+        //HELPER METHOD
+        private async Task<List<SelectListItem>> GetCategoriesHelperMethod(string? id)
+           {
+            string productCategoryId = null;
+
+            var client = _httpClientFactory.CreateClient();
+            var messageResponse = await client.GetAsync("https://localhost:7000/api/Categories");
+
+            var jsonData = await messageResponse.Content.ReadAsStringAsync();
+            var stringData = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
+
+            if(id != null)
+            {
+                var _messageResponse = await client.GetAsync("https://localhost:7000/api/Products/" +id);
+                var _jsonData =await _messageResponse.Content.ReadAsStringAsync();
+                var data = JsonConvert.DeserializeObject<ProductResultDto>(_jsonData);
+
+                productCategoryId = data.CategoryID;
+            }
+
+            List<SelectListItem> selectListItems = (from x in stringData
+                                                    select new SelectListItem
+                                                    {
+                                                        Text = x.CategoryName,
+                                                        Value = x.CategoryID.ToString(),
+                                                        Selected = productCategoryId != null && x.CategoryID == productCategoryId
+                                                    }).ToList();
+
+            return selectListItems;
         }
     }
 }
