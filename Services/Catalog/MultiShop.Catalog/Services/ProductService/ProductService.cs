@@ -3,12 +3,15 @@ using MongoDB.Driver;
 using MultiShop.Catalog.Dtos.ProductDtos;
 using MultiShop.Catalog.Entities;
 using MultiShop.Catalog.Settings;
+using ZstdSharp;
 
 namespace MultiShop.Catalog.Services.ProductService
 {
+
     public class ProductService : IProductService
     {
         private readonly IMongoCollection<Product> _productCollection;
+        private readonly IMongoCollection<Category> _categoryCollection;
         private readonly IMapper _mapper;
 
         public ProductService(IDatabaseSettings databaseSettings, IMapper mapper)
@@ -16,6 +19,7 @@ namespace MultiShop.Catalog.Services.ProductService
             var client = new MongoClient(databaseSettings.ConnectionString);
             var database = client.GetDatabase(databaseSettings.DatabaseName);
             _productCollection = database.GetCollection<Product>(databaseSettings.ProductCollectionName);
+            _categoryCollection = database.GetCollection<Category>(databaseSettings.CategoryCollectionName);
             _mapper = mapper;
         }
 
@@ -41,6 +45,17 @@ namespace MultiShop.Catalog.Services.ProductService
             var value =await _productCollection.Find<Product>(x => x.ProductID == id).FirstOrDefaultAsync();
             return _mapper.Map<GetByIdProductDto>(value);
         }
+
+        public async Task<List<ResultProductWithCategoryDto>> GetProductWithCategoryAsync()
+        {
+            var value = await _productCollection.Find(x => true).ToListAsync();
+
+            foreach (var item in value)
+            {
+                item.Category =await _categoryCollection.Find(x => x.CategoryID == item.CategoryId).FirstAsync();
+            }
+            return _mapper.Map<List<ResultProductWithCategoryDto>>(value);
+        }   
 
         public async Task UpdateProductAsync(UpdateProductDto updateProductDto)
         {

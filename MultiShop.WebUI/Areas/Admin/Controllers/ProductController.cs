@@ -24,11 +24,11 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7000/api/Products");
+            var responseMessage = await client.GetAsync("https://localhost:7000/api/Products/GetProductWithCategory");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var stringData = JsonConvert.DeserializeObject<List<ProductResultDto>>(jsonData);
+                var stringData = JsonConvert.DeserializeObject<List<ResultProductWithCategoryDto>>(jsonData);
 
                 return View(stringData);
             }

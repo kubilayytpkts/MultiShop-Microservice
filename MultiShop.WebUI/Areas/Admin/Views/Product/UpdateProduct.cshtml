@@ -4,7 +4,14 @@
     ViewData["Title"] = "UpdateProduct";
     Layout = "~/Areas/Admin/Views/Layout/Admin.cshtml";
 }
-
+<style>
+    .custom-dropdown {
+    width: 100%; /* Tam genişlik */
+    max-width: 400px; /* Maksimum genişlik */
+    padding-right: 10px; /* Sağ boşluk */
+    box-sizing: border-box; /* Padding ve border'ı genişliğe dahil et */
+}
+</style>
 <div class="col-md-12">
     <div class="chart-box">
         <h4>Ürün Güncelleme</h4>
@@ -19,7 +26,8 @@
                             </div>
                             @Html.DropDownListFor(x => x.CategoryID,
                                      (List<SelectListItem>)ViewData["CategoryList"],
-                                     new { @class = "form-control", style = "width: 100%; max-width: 400px; padding-right: 20px;" })
+                                     new { @class = "form-control custom-dropdown" })
+
                             <br />
                             <div class="form-group">
                              <textarea rows="5" class="form-control" name="ProductDescription" placeholder="Ürün Açıklaması">@Model.ProductDescription</textarea>
