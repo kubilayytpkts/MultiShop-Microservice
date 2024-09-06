@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MongoDB.Bson.IO;
 using MongoDB.Driver;
 using MultiShop.Catalog.Dtos.FeatureSlider;
 using MultiShop.Catalog.Entities;
@@ -36,13 +37,13 @@ namespace MultiShop.Catalog.Services.FeatureSliderService
 
         public async Task<List<ResultFeatureSliderDto>> GetAllFeatureSliderAsync()
         {
-            var result = await _featureSliderCollection.Find(x=>true).ToListAsync();
+            var result = await _featureSliderCollection.Find<FeatureSlider>(x=>true).ToListAsync();
             return _mapper.Map<List<ResultFeatureSliderDto>>(result);
         }
 
         public async Task<GetByIdFeatureSliderDto> GetFeatureSliderById(string id)
         {
-            var value = await _featureSliderCollection.Find(x=>x.SliderID==id).FirstOrDefaultAsync();
+            var value = await _featureSliderCollection.Find<FeatureSlider>(x=>x.SliderID==id).FirstOrDefaultAsync();
             return _mapper.Map<GetByIdFeatureSliderDto>(value);
         }
 

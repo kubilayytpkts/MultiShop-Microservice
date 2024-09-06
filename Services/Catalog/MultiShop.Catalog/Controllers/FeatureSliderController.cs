@@ -26,7 +26,7 @@ namespace MultiShop.Catalog.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetFeatureSliderAsync(string id)
         {
-            var featureSliderById = _featureSliderService.GetFeatureSliderById(id);
+            var featureSliderById =await _featureSliderService.GetFeatureSliderById(id);
             return Ok(featureSliderById);
         }
 
@@ -43,6 +43,7 @@ namespace MultiShop.Catalog.Controllers
             await _featureSliderService.UpdateFeatureSliderAsync(updateFeatureSlider);
             return Ok("Slider güncelleme işlemi başarılı !");
         }
+
         [HttpDelete]
         public async Task<IActionResult> DeleteFeatureAsync(string id)
         {
