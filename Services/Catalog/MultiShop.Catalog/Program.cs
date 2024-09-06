@@ -7,6 +7,7 @@ using MultiShop.Catalog.Services.ProductService;
 using MultiShop.Catalog.Settings;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using MultiShop.Catalog.Services.FeatureSliderService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,7 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductDetailService, ProductDetailService>();
 builder.Services.AddScoped<IProductImageService, ProductImageService>();
+builder.Services.AddScoped<IFeatureSliderService, FeatureSliderService>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
