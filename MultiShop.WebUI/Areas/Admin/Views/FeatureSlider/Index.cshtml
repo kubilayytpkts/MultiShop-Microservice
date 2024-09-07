@@ -1,0 +1,47 @@
+﻿@using MultiShop.Dtos.FeatureSliderDtos
+@model List<ResultFeatureSliderDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Layout/Admin.cshtml";
+    int count = 0;
+}
+
+<div class="col-md-12">
+    <div class="chart-box">
+        <h4>Slider Görselleri</h4>
+        <div class="bs-example" data-example-id="bordered-table">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Görsel Başlığı</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <th scope="row">@count</th>
+                            <td>@item.SliderTitle</td>
+                            <td><a class="btn btn-primary" href="/Admin/FeatureSlider/UpdateFeatureSlider/@item.SliderID">Düzenle</a></td>
+                         <td>
+                                <a class="btn btn-warning" href="/Admin/FeatureSlider/DeleteFeatureSlider/@item.SliderID">Sil</a>
+                        </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+        <a href="/Admin/FeatureSlider/CreateFeatureSlider/" class="btn btn-primary">Slider Ekle</a>
+    </div>
+</div>
+
+
+
+
