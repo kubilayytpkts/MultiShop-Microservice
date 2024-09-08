@@ -1,0 +1,53 @@
+﻿@using MultiShop.Dtos.SpecialOfferDtos
+@model List<ResultSpecialOfferDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Layout/Admin.cshtml";
+}
+<div class="col-md-12">
+    <div class="chart-box">
+        <h4>Özel Teklif Listesi</h4>
+        <div class="bs-example" data-example-id="bordered-table">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Başlık</th>
+                        <th>Alt Başlık</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.SpecialOfferTitle</td>
+                            <td>@item.SpecialOfferSubTitle</td>
+                            <td><a class="btn btn-primary" href="/Admin/SpecialOffer/UpdateSpecialOffer/@item.SpecialOfferId">Düzenle</a></td>
+                            <td>
+                                <a class="btn btn-warning" href="/Admin/SpecialOffer/DeleteSpecialOffer/@item.SpecialOfferId">Sil</a>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+        <a href="/Admin/SpecialOffer/CreateSpecialOffer/" class="btn btn-primary">Özel teklif Ekle</a>
+    </div>
+</div>
+
+<script>
+    function deleteCategory(categoryId) {
+        if (confirm("Bu kategoriyi silmek istediğinize emin misiniz?")) {
+            fetch(`/Admin/SpecialOffer/DeleteSpecialOffer/${categoryId}`, {
+                method: 'DELETE'
+            }).then(() => {
+                window.location.href = "/Admin/Category/Index";
+            });
+        }
+    }
+</script>
