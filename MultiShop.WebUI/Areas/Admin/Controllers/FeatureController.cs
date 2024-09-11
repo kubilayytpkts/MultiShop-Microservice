@@ -80,7 +80,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
 
             var SerializeData = JsonConvert.SerializeObject(updateFeatureDto);
             var stringContent = new StringContent(SerializeData, Encoding.UTF8, "application/json");
-
+            
             var responseMessage = await client.PutAsync("https://localhost:7000/api/Feature", stringContent);
             if (responseMessage.IsSuccessStatusCode)
                 return Redirect("/Admin/Feature/Index");
