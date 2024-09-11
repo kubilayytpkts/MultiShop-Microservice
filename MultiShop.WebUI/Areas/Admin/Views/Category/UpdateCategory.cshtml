@@ -16,9 +16,11 @@
                     <div class="chart-box">
                         <form method="post">
                             <div class="form-group">
-                                <input type="hidden" readonly class="form-control" id="CategoryName" name="CategoryID" value="@Model.CategoryID">
+                                <input type="hidden" readonly class="form-control" name="CategoryID" value="@Model.CategoryID">
                                 <br />
-                                <input type="text" read class="form-control" id="CategoryName" name="CategoryName" value="@Model.CategoryName">
+                                <input type="text" read class="form-control" placeholder="Kategori Adı" name="CategoryName" value="@Model.CategoryName">
+                                <br />
+                                <input type="text" read class="form-control" placeholder="Kategori Görseli" name="ImageUrl" value="@Model.ImageUrl">
                             </div>
                             <button type="submit" class="btn btn-success">Güncelle</button>
                         </form>
