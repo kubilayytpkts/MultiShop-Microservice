@@ -37,7 +37,7 @@ namespace MultiShop.Catalog.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateSpecialOffer(UpdateSpecialOfferDto updateSpecialOffer)
+        public async Task<IActionResult> UpdateSpecialOffer(UpdateOfferDiscountDto updateSpecialOffer)
         {
             await _specialOfferService.UpdateSpecialOfferAsync(updateSpecialOffer);
             return Ok("Özel teklif güncelleme işlemi başarılı");

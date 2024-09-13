@@ -69,7 +69,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var stringData = JsonConvert.DeserializeObject<UpdateProductDto>(jsonData);
+                var stringData = JsonConvert.DeserializeObject<ProductResultDto>(jsonData);
 
                 ViewData["CategoryList"] = await GetCategoriesHelperMethod(stringData.ProductID);
                 return View(stringData);
@@ -85,7 +85,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(updateProduct);
             var stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:7000/api/Products/", stringContent);
+            var responseMessage = await client.PutAsync("https://localhost:7000/api/Products/", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return Redirect("/Admin/Product/Index");

@@ -41,10 +41,10 @@ namespace MultiShop.Catalog.Mapping
             CreateMap<FeatureSlider, UpdateFeatureSliderDto>().ReverseMap();
             CreateMap<FeatureSlider, GetByIdFeatureSliderDto>().ReverseMap();
 
-            CreateMap<SpecialOffer, GetByIdSpecialOfferDto>().ReverseMap();
-            CreateMap<SpecialOffer, UpdateSpecialOfferDto>().ReverseMap();
+            CreateMap<SpecialOffer, GetByIdSOfferDiscountDto>().ReverseMap();
+            CreateMap<SpecialOffer, UpdateOfferDiscountDto>().ReverseMap();
             CreateMap<SpecialOffer, CreateSpecialOfferDto>().ReverseMap();
-            CreateMap<SpecialOffer, ResultSpecialOfferDto>().ReverseMap();
+            CreateMap<SpecialOffer, ResultOfferDiscountDto>().ReverseMap();
 
             CreateMap<Features, UpdateFeatureDto>().ReverseMap();
             CreateMap<Features, CreateFeatureDto>().ReverseMap();

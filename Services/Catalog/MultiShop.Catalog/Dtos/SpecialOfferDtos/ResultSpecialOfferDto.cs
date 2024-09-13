@@ -1,6 +1,6 @@
 ﻿namespace MultiShop.Catalog.Dtos.SpecialOfferDtos
 {
-    public class ResultSpecialOfferDto
+    public class ResultOfferDiscountDto
     {
         public string SpecialOfferId { get; set; }
         public string SpecialOfferTitle { get; set; }

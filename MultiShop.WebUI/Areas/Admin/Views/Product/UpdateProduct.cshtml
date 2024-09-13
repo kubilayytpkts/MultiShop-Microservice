@@ -1,4 +1,4 @@
-﻿@model MultiShop.Dtos.ProductDtos.UpdateProductDto
+﻿@model MultiShop.Dtos.ProductDtos.ProductResultDto
 
 @{
     ViewData["Title"] = "UpdateProduct";
@@ -22,6 +22,7 @@
                     <div class="chart-box">
                         <form method="post">
                             <div class="form-group">
+                                <input type="hidden" name="ProductID" value="@Model.ProductID" />
                                 <input type="text" class="form-control" name="ProductName" value="@Model.ProductName" placeholder="Ürün Adı">
                             </div>
                             @Html.DropDownListFor(x => x.CategoryID,
@@ -38,7 +39,7 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" name="ProductImageUrl" value="@Model.ProductImageUrl" placeholder="Resim URL">
                             </div>
-                            <button type="submit" class="btn btn-success">Ekle</button>
+                            <button type="submit" class="btn btn-success">Düzenle</button>
                         </form>
                     </div>
                 </div>

@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
 
-namespace MultiShop.Dtos.SpecialOfferDtos
+namespace MultiShop.Catalog.Entities
 {
-    public class GetByIdSOfferDiscountDto
+    public class OfferDiscount
     {
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
         public string SpecialOfferId { get; set; }
         public string SpecialOfferTitle { get; set; }
         public string SpecialOfferSubTitle { get; set; }
