@@ -39,15 +39,3 @@
         <a href="/Admin/SpecialOffer/CreateSpecialOffer/" class="btn btn-primary">Özel teklif Ekle</a>
     </div>
 </div>
-
-<script>
-    function deleteCategory(categoryId) {
-        if (confirm("Bu kategoriyi silmek istediğinize emin misiniz?")) {
-            fetch(`/Admin/SpecialOffer/DeleteSpecialOffer/${categoryId}`, {
-                method: 'DELETE'
-            }).then(() => {
-                window.location.href = "/Admin/Category/Index";
-            });
-        }
-    }
-</script>

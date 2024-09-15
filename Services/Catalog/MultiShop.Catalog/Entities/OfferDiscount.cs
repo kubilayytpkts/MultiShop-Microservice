@@ -7,9 +7,9 @@ namespace MultiShop.Catalog.Entities
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string SpecialOfferId { get; set; }
-        public string SpecialOfferTitle { get; set; }
-        public string SpecialOfferSubTitle { get; set; }
-        public string SpecialOfferImage { get; set; }
-    }
+		public string OfferDiscountId { get; set; }
+		public string OfferDiscountTitle { get; set; }
+		public string OfferDiscountSubTitle { get; set; }
+		public string OfferDiscountImage { get; set; }
+	}
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Dtos.OfferDiscountDtos
+namespace MultiShop.Catalog.Dtos.OfferDiscountDtos
 {
     public class CreateOfferDiscountDto
     {

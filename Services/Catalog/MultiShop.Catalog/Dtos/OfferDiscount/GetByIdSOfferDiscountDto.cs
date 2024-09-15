@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Dtos.OfferDiscountDtos
+namespace MultiShop.Catalog.Dtos.OfferDiscountDtos
 {
-    public class GetByIdSOfferDiscountDto
+    public class GetByIdOfferDiscountDto
     {
         public string OfferDiscountId { get; set; }
         public string OfferDiscountTitle { get; set; }

@@ -3,7 +3,6 @@ using MongoDB.Driver;
 using MultiShop.Catalog.Dtos.OfferDiscountDtos;
 using MultiShop.Catalog.Entities;
 using MultiShop.Catalog.Settings;
-using MultiShop.Dtos.OfferDiscountDtos;
 
 namespace MultiShop.Catalog.Services.OfferDiscountService
 {
@@ -29,7 +28,7 @@ namespace MultiShop.Catalog.Services.OfferDiscountService
 
         public async Task DeleteOfferDiscountAsync(string id)
         {
-            await _offerDisctounCollection.FindOneAndDeleteAsync<OfferDiscount>(id);
+            await _offerDisctounCollection.FindOneAndDeleteAsync<OfferDiscount>(x=>x.OfferDiscountId == id);
         }
 
         public async Task<List<ResultOfferDiscountDto>> GetAllOfferDiscountAsync()
@@ -39,17 +38,17 @@ namespace MultiShop.Catalog.Services.OfferDiscountService
             return mappedData;
         }
 
-        public async Task<GetByIdSOfferDiscountDto> GetOfferDiscountById(string id)
+        public async Task<GetByIdOfferDiscountDto> GetOfferDiscountById(string id)
         {
-            var resultList =await _offerDisctounCollection.Find<OfferDiscount>(x=>x.SpecialOfferId==id).FirstOrDefaultAsync();
-            var mappedData = _mapper.Map<GetByIdSOfferDiscountDto>(resultList);
+            var resultList =await _offerDisctounCollection.Find<OfferDiscount>(x=>x.OfferDiscountId==id).FirstOrDefaultAsync();
+            var mappedData = _mapper.Map<GetByIdOfferDiscountDto>(resultList);
             return mappedData;
         }
 
         public async Task UpdateOfferDiscountAsync(UpdateOfferDiscountDto updateOfferDiscount)
         {
             var mappedData = _mapper.Map<OfferDiscount>(updateOfferDiscount);
-            await _offerDisctounCollection.FindOneAndReplaceAsync<OfferDiscount>(x => x.SpecialOfferId == updateOfferDiscount.OfferDiscountId,mappedData);
+            await _offerDisctounCollection.FindOneAndReplaceAsync<OfferDiscount>(x => x.OfferDiscountId == updateOfferDiscount.OfferDiscountId,mappedData);
 
         }
     }

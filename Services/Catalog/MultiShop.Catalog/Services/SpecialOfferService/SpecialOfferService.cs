@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MongoDB.Bson.IO;
 using MongoDB.Driver;
+using MultiShop.Catalog.Dtos.OfferDiscountDtos;
 using MultiShop.Catalog.Dtos.SpecialOfferDtos;
 using MultiShop.Catalog.Entities;
 using MultiShop.Catalog.Settings;
@@ -31,20 +32,19 @@ namespace MultiShop.Catalog.Services.SpecialOfferService
             await _specialOfferCollection.DeleteOneAsync(x=>x.SpecialOfferId == id);
         }
 
-        public async Task<List<ResultOfferDiscountDto>> GetAllSpecialOfferAsync()
+        public async Task<List<ResultSpecialOfferDto>> GetAllSpecialOfferAsync()
         {
-
             var data =await _specialOfferCollection.Find(x=> true).ToListAsync();
-            return _mapper.Map<List<ResultOfferDiscountDto>>(data);  
+            return _mapper.Map<List<ResultSpecialOfferDto>>(data);  
         }
 
-        public async Task<GetByIdSOfferDiscountDto> GetSpecialOfferById(string id)
+        public async Task<GetByIdSepacialOfferDto> GetSpecialOfferById(string id)
         {
             var data =await _specialOfferCollection.Find(x=>x.SpecialOfferId == id).FirstOrDefaultAsync();
-            return _mapper.Map<GetByIdSOfferDiscountDto>(data);
+            return _mapper.Map<GetByIdSepacialOfferDto>(data);
         }
 
-        public async Task UpdateSpecialOfferAsync(UpdateOfferDiscountDto updateSpecialOffer)
+        public async Task UpdateSpecialOfferAsync(UpdateSpecialOfferDto updateSpecialOffer)
         {
             var data = _mapper.Map<SpecialOffer>(updateSpecialOffer);
             await _specialOfferCollection.FindOneAndReplaceAsync(x => x.SpecialOfferId == data.SpecialOfferId, data);

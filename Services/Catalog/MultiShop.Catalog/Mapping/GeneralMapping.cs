@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using MultiShop.Catalog.Dtos;
 using MultiShop.Catalog.Dtos.CategoryDtos;
 using MultiShop.Catalog.Dtos.FeatureDtos;
 using MultiShop.Catalog.Dtos.FeatureSlider;
+using MultiShop.Catalog.Dtos.OfferDiscountDtos;
 using MultiShop.Catalog.Dtos.ProductDetailDtos;
 using MultiShop.Catalog.Dtos.ProductDtos;
 using MultiShop.Catalog.Dtos.ProductImageDtos;
@@ -41,15 +43,20 @@ namespace MultiShop.Catalog.Mapping
             CreateMap<FeatureSlider, UpdateFeatureSliderDto>().ReverseMap();
             CreateMap<FeatureSlider, GetByIdFeatureSliderDto>().ReverseMap();
 
-            CreateMap<SpecialOffer, GetByIdSOfferDiscountDto>().ReverseMap();
-            CreateMap<SpecialOffer, UpdateOfferDiscountDto>().ReverseMap();
+            CreateMap<SpecialOffer, GetByIdSepacialOfferDto>().ReverseMap();
+            CreateMap<SpecialOffer, UpdateSpecialOfferDto>().ReverseMap();
             CreateMap<SpecialOffer, CreateSpecialOfferDto>().ReverseMap();
-            CreateMap<SpecialOffer, ResultOfferDiscountDto>().ReverseMap();
+            CreateMap<SpecialOffer, ResultSpecialOfferDto>().ReverseMap();
 
             CreateMap<Features, UpdateFeatureDto>().ReverseMap();
             CreateMap<Features, CreateFeatureDto>().ReverseMap();
             CreateMap<Features, GetByIdFeatureDto>().ReverseMap();
             CreateMap<Features, ResultFeatureDto>().ReverseMap();
+
+            CreateMap<OfferDiscount, UpdateOfferDiscountDto>().ReverseMap();
+            CreateMap<OfferDiscount, CreateOfferDiscountDto>().ReverseMap();
+            CreateMap<OfferDiscount, GetByIdOfferDiscountDto>().ReverseMap();
+            CreateMap<OfferDiscount, ResultOfferDiscountDto>().ReverseMap();
 
 
         }

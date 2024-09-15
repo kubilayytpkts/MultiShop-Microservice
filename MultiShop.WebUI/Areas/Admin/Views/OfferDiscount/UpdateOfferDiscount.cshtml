@@ -1,0 +1,35 @@
+﻿@using MultiShop.Dtos.OfferDiscountDtos
+@model ResultOfferDiscountDto
+
+@{
+    ViewData["Title"] = "UpadateOfferDiscount";
+    Layout = "~/Areas/Admin/Views/Layout/Admin.cshtml";
+}
+<div class="col-md-12">
+    <div class="chart-box">
+        <h4>Özel İndirim Ekleme</h4>
+        <!-- Main content -->
+        <section class="content container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="chart-box">
+                        <form method="post">
+                            <div class="form-group">
+                                <input type="hidden" value="@Model.OfferDiscountId" name="OfferDiscountId" />
+                                <input type="text" class="form-control" value="@Model.OfferDiscountTitle" name="OfferDiscountTitle" placeholder="Başlık">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" value="@Model.OfferDiscountSubTitle" name="OfferDiscountSubTitle" placeholder="Alt Başlık">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" value="@Model.OfferDiscountImage" name="OfferDiscountImage" placeholder="Özel teklif görsel">
+                            </div>
+                            <button type="submit" class="btn btn-success">Düzenle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- content -->
+    </div>
+</div>

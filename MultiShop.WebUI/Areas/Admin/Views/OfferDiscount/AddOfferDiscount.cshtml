@@ -1,12 +1,14 @@
-﻿@using MultiShop.Dtos.FeatureDtos
-@model ResultFeatureDto
+﻿@using MultiShop.Dtos.OfferDiscountDtos
+@model CreateOfferDiscountDto
+
 @{
-    ViewData["Title"] = "UpdateFeature";
+    ViewData["Title"] = "AddOfferDiscount";
     Layout = "~/Areas/Admin/Views/Layout/Admin.cshtml";
 }
+
 <div class="col-md-12">
     <div class="chart-box">
-        <h4>Kategori Ekleme</h4>
+        <h4>Özel İndirim Ekleme</h4>
         <!-- Main content -->
         <section class="content container-fluid">
             <div class="row">
@@ -14,10 +16,13 @@
                     <div class="chart-box">
                         <form method="post">
                             <div class="form-group">
-                                <input type="text" class="form-control" value="@Model.FeatureTitle" name="FeatureTitle" placeholder="Özellik Adı">
+                                <input type="text" class="form-control" name="OfferDiscountTitle" placeholder="Başlık">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" value="@Model.Featureicon" name="Featureicon" placeholder="İcon">
+                                <input type="text" class="form-control" name="OfferDiscountSubTitle" placeholder="Alt Başlık">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="OfferDiscountImage" placeholder="Özel teklif görsel">
                             </div>
                             <button type="submit" class="btn btn-success">Ekle</button>
                         </form>
@@ -28,3 +33,4 @@
         <!-- content -->
     </div>
 </div>
+

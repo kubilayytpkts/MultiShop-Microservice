@@ -1,26 +1,21 @@
-﻿<!-- Offer Start -->
+﻿@using MultiShop.Dtos.OfferDiscountDtos
+@model List<ResultOfferDiscountDto>
+<!-- Offer Start -->
 <div class="container-fluid pt-5 pb-3">
     <div class="row px-xl-5">
+        @foreach (var item in Model)
+        {
         <div class="col-md-6">
             <div class="product-offer mb-30" style="height: 300px;">
-                <img class="img-fluid" src="~/online-shop-website-template/img/EvDekorasyon1.jpg" alt="">
+                <img class="img-fluid" src="@item.OfferDiscountImage" alt="">
                 <div class="offer-text">
-                    <h6 class="text-white text-uppercase"> 15% İndirim</h6>
-                    <h3 class="text-white mb-3">Ev Dekorasyonu</h3>
+                    <h6 class="text-white text-uppercase"> @item.OfferDiscountSubTitle</h6>
+                    <h3 class="text-white mb-3">@item.OfferDiscountTitle</h3>
                     <a href="" class="btn btn-primary">Alışverişe Başla</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="product-offer mb-30" style="height: 300px;">
-                <img class="img-fluid" src="~/online-shop-website-template/img/AhşapDekorasyon1.jpg" alt="">
-                <div class="offer-text">
-                    <h6 class="text-white text-uppercase">25% Ek İndirim</h6>
-                    <h3 class="text-white mb-3">Ahşap Ev Malzemeleri</h3>
-                    <a href="" class="btn btn-primary">Alışverişe Başla</a>
-                </div>
-            </div>
-        </div>
+        }
     </div>
 </div>
 <!-- Offer End -->

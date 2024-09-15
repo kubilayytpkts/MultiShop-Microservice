@@ -10,7 +10,7 @@ namespace MultiShop.Catalog.Controllers
     public class FeatureSliderController : ControllerBase
     {
         private readonly IFeatureSliderService _featureSliderService;
-
+            
         public FeatureSliderController(IFeatureSliderService featureSliderService)
         {
             _featureSliderService = featureSliderService;

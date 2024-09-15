@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MultiShop.Dtos.SpecialOfferDtos
 {
-    public class UpdateOfferDiscountDto
+    public class UpdateSpecialOfferDto
     {
         public string SpecialOfferId { get; set; }
         public string SpecialOfferTitle { get; set; }

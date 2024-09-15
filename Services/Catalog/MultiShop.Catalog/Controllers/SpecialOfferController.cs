@@ -23,6 +23,7 @@ namespace MultiShop.Catalog.Controllers
             var value = await _specialOfferService.GetAllSpecialOfferAsync();
             return Ok(value);
         }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSpecialOfferById(string id)
         {
@@ -37,11 +38,12 @@ namespace MultiShop.Catalog.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateSpecialOffer(UpdateOfferDiscountDto updateSpecialOffer)
+        public async Task<IActionResult> UpdateSpecialOffer(UpdateSpecialOfferDto updateSpecialOffer)
         {
             await _specialOfferService.UpdateSpecialOfferAsync(updateSpecialOffer);
             return Ok("Özel teklif güncelleme işlemi başarılı");
         }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSpecialOffer(string id)
         {

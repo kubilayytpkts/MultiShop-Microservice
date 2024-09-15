@@ -1,5 +1,4 @@
 ﻿using MultiShop.Catalog.Dtos.OfferDiscountDtos;
-using MultiShop.Dtos.OfferDiscountDtos;
 
 namespace MultiShop.Catalog.Services.OfferDiscountService
 {
@@ -8,7 +7,7 @@ namespace MultiShop.Catalog.Services.OfferDiscountService
         Task<List<ResultOfferDiscountDto>> GetAllOfferDiscountAsync();
         Task CreateOfferDiscountAsync(CreateOfferDiscountDto createOfferDiscountDto);
 
-        Task<GetByIdSOfferDiscountDto> GetOfferDiscountById(string id);
+        Task<GetByIdOfferDiscountDto> GetOfferDiscountById(string id);
 
         Task UpdateOfferDiscountAsync(UpdateOfferDiscountDto updateOfferDiscount);
         Task DeleteOfferDiscountAsync(string id);

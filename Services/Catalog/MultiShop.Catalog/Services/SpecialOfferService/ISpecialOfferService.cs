@@ -1,4 +1,5 @@
-﻿using MultiShop.Catalog.Dtos.ProductDtos;
+﻿using MultiShop.Catalog.Dtos.OfferDiscountDtos;
+using MultiShop.Catalog.Dtos.ProductDtos;
 using MultiShop.Catalog.Dtos.SpecialOfferDtos;
 using MultiShop.Dtos.SpecialOfferDtos;
 
@@ -6,12 +7,12 @@ namespace MultiShop.Catalog.Services.SpecialOfferService
 {
     public interface ISpecialOfferService
     {
-        Task<List<ResultOfferDiscountDto>> GetAllSpecialOfferAsync();
+        Task<List<ResultSpecialOfferDto>> GetAllSpecialOfferAsync();
         Task CreateSpecialOfferAsync(CreateSpecialOfferDto createSpecialOfferDto);
 
-        Task<GetByIdSOfferDiscountDto> GetSpecialOfferById(string id);
+        Task<GetByIdSepacialOfferDto> GetSpecialOfferById(string id);
 
-        Task UpdateSpecialOfferAsync(UpdateOfferDiscountDto updateSpecialOffer);
+        Task UpdateSpecialOfferAsync(UpdateSpecialOfferDto updateSpecialOffer);
         Task DeleteSpecialOfferAsync(string id);
     }
 }
