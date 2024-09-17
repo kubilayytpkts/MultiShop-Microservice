@@ -1,0 +1,40 @@
+﻿@using MultiShop.Dtos.WorkingCompanys
+@model List<ResultWorkingCompanyDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Layout/Admin.cshtml";
+     int count = 0;
+}
+
+<div class="col-md-12">
+    <div class="chart-box">
+        <h4>Referans Şirket Listesi</h4>
+        <div class="bs-example" data-example-id="bordered-table">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Şirket Görseli</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <th scope="row">@count</th>
+                            <td>@item.CompanyImage</td>
+                                <td><a class="btn btn-primary" href="/Admin/WorkingCompany/UpdateWorkingCompany/@item.CompanyId">Düzenle</a></td>
+                            <td>
+                                    <a class="btn btn-warning" href="/Admin/WorkingCompany/DeleteWorkingCompany/@item.CompanyId">Sil</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+        <a href="/Admin/WorkingCompany/CreateWorkingCompany/" class="btn btn-primary">Referans Şirket Ekle</a>
+    </div>
+</div>

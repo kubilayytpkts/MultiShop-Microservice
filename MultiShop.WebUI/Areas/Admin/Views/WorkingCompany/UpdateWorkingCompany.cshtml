@@ -1,14 +1,14 @@
-﻿@using MultiShop.Dtos.SpecialOfferDtos
-@model ResultSpecialOfferDto
+﻿@using MultiShop.Dtos.WorkingCompanys
+@model ResultWorkingCompanyDto
+
 @{
-    ViewData["Title"] = "UpdateSpecialOffer";
+    ViewData["Title"] = "UpdateWorkingCompany";
     Layout = "~/Areas/Admin/Views/Layout/Admin.cshtml";
 }
 
-
 <div class="col-md-12">
     <div class="chart-box">
-        <h4>Referans Şirket Güncelleme</h4>
+        <h4>Referans Şirket Ekleme</h4>
         <!-- Main content -->
         <section class="content container-fluid">
             <div class="row">
@@ -16,7 +16,9 @@
                     <div class="chart-box">
                         <form method="post">
                             <div class="form-group">
-                                <input type="text" class="form-control" value="@Model.SpecialOfferImage" name="WorkingCompanyImage">
+                                <input type="hidden" name="CompanyId" value="@Model.CompanyId" />
+                                <label>Referans Şirket Görseli</label>
+                                <input type="text" class="form-control" value="@Model.CompanyImage" name="CompanyImage">
                             </div>
                             <button type="submit" class="btn btn-success">Ekle</button>
                         </form>
@@ -27,5 +29,4 @@
         <!-- content -->
     </div>
 </div>
-
 

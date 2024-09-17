@@ -22,12 +22,14 @@ namespace MultiShop.Catalog.Controllers
             await _workingCompanyService.AddWorkingCompany(company);
             return Ok("Şirket ekleme işlemi başarılı");
         }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdWorkingCompany(string id)
         {
             var resultWorkingCompany = await _workingCompanyService.GetByIdWorkingCompany(id); 
             return Ok(resultWorkingCompany);
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAllWorkingCompany()
         {
@@ -41,6 +43,7 @@ namespace MultiShop.Catalog.Controllers
             await _workingCompanyService.UpdateWorkingCompamy(company);
             return Ok("Şirket güncelleme işlemi başarılı");
         }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteWorkingCompany(string id)
         {
