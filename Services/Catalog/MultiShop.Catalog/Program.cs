@@ -11,6 +11,7 @@ using MultiShop.Catalog.Services.FeatureSliderService;
 using MultiShop.Catalog.Services.SpecialOfferService;
 using MultiShop.Catalog.Services.FeatureService;
 using MultiShop.Catalog.Services.OfferDiscountService;
+using MultiShop.Catalog.Services.WorkingCompanyService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,7 @@ builder.Services.AddScoped<IFeatureSliderService, FeatureSliderService>();
 builder.Services.AddScoped<ISpecialOfferService, SpecialOfferService>();
 builder.Services.AddScoped<IFeatureService, FeatureService>();
 builder.Services.AddScoped<IOfferDiscountService, OfferDiscountService>();
+builder.Services.AddScoped<IWorkingCompanyService, WorkingCompanyService>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
