@@ -12,13 +12,17 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>Açıklama</th>
+                        <th>Adres</th>
+                        <th>Telefon Numarası</th>
                         <th>Düzenle</th>
                     </tr>
                 </thead>
                 <tbody>
                         <tr>
-                            <th scope="row">@Model.id</th>
+                            <td scope="row">@Model.Description</td>
+                            <td scope="row">@Model.Address</td>
+                            <td scope="row">@Model.PhoneNumber</td>
                             <td><a class="btn btn-primary" href="/Admin/About/UpdateAbout/@Model.id">Düzenle</a></td>
                         </tr>
                 </tbody>

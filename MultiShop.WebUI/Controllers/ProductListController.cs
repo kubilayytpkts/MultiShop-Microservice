@@ -2,10 +2,13 @@
 
 namespace MultiShop.WebUI.Controllers
 {
+    [Route("ProductList")]
     public class ProductListController : Controller
     {
-        public IActionResult Index()
+        [Route("Index/{id}")]
+        public IActionResult Index(string id)
         {
+            ViewData["id"] = id;
             return View();
         }
 

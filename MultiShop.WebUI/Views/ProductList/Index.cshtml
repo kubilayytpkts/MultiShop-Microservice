@@ -36,7 +36,7 @@
 
                 @await Component.InvokeAsync("_ProductSortingComponentPartial")
 
-                @await Component.InvokeAsync("_ProductListComponentPartial")
+                @await Component.InvokeAsync("_ProductListComponentPartial", new { categoryId = ViewData["id"] })
 
                 <div class="col-12">
                     <nav>
