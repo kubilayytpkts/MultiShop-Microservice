@@ -8,12 +8,14 @@ namespace MultiShop.WebUI.Controllers
         [Route("Index/{id}")]
         public IActionResult Index(string id)
         {
-            ViewData["id"] = id;
+            ViewData["categoryId"] = id;
             return View();
         }
 
-        public IActionResult ProductDetail()
+        [Route("ProductDetail/{id}")]
+        public IActionResult ProductDetail(string id)
         {
+            ViewData["productId"] = id;
             return View();
         }
     }

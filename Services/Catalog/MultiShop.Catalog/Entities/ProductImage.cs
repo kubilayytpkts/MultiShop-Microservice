@@ -7,10 +7,8 @@ namespace MultiShop.Catalog.Entities
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string ProductImageID { get; set; }
-        public string ProductImages1 { get; set;}
-        public string ProductImages2 { get; set;}
-        public string ProductImages3 { get; set;}
+        public string ProductImageId { get; set; }
+        public string ProductImages { get; set;}
         public string ProductId { get; set;}
         [BsonIgnore]
         public Product Product { get; set;}

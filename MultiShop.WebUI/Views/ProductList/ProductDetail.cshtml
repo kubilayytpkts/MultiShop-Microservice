@@ -6,11 +6,11 @@
 
 <div class="container-fluid pb-5">
     <div class="row px-xl-5">
-        @await Component.InvokeAsync("_DetailImagesComponentPartial")
+        @await Component.InvokeAsync("_DetailImagesComponentPartial", new { productId = ViewData["productId"] })
 
-        @await Component.InvokeAsync("_ProductDetailComponentPartial")
+        @await Component.InvokeAsync("_ProductDetailComponentPartial", new { id = ViewData["productId"] })
     </div>
-    <div class="row px-xl-5">
+    <div class="row px-xl-5">   
         <div class="col">
             <div class="bg-light p-30">
                 <div class="nav nav-tabs mb-4">

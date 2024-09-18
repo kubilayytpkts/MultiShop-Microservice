@@ -29,7 +29,7 @@ namespace MultiShop.Catalog.Services.ProductImageService
 
         public async Task DeleteProductImageAsync(string id)
         {
-            await _productImageCollection.DeleteOneAsync(x => x.ProductImageID == id);
+            await _productImageCollection.DeleteOneAsync(x => x.ProductImageId == id);
         }
 
         public async Task<List<ResultProductImageDto>> GetAllProductImageAsync()
@@ -38,16 +38,22 @@ namespace MultiShop.Catalog.Services.ProductImageService
             return _mapper.Map<List<ResultProductImageDto>>(value);
         }
 
+        public async Task<List<ResultProductImageDto>> GetImagesByProductId(string productId)
+        {
+            var value =await _productImageCollection.Find(x=>x.ProductId == productId).ToListAsync();
+            return _mapper.Map<List<ResultProductImageDto>>(value);
+        }
+
         public async Task<GetByIdProductImageDto> GetProductImageById(string id)
         {
-            var value =await _productImageCollection.Find<ProductImage>(x => x.ProductImageID == id).FirstOrDefaultAsync();
+            var value =await _productImageCollection.Find<ProductImage>(x => x.ProductImageId == id).FirstOrDefaultAsync();
             return _mapper.Map<GetByIdProductImageDto>(value);
         }
 
         public async Task UpdateProductImageAsync(UpdateProductImageDto updateProductImageDto)
         {
             var value = _mapper.Map<ProductImage>(updateProductImageDto);
-            await _productImageCollection.FindOneAndReplaceAsync(x => x.ProductImageID == updateProductImageDto.ProductImageID, value);
+            await _productImageCollection.FindOneAndReplaceAsync(x => x.ProductImageId == updateProductImageDto.ProductImageId, value);
         }
     }
 }
