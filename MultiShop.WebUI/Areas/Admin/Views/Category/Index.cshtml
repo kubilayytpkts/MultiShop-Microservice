@@ -42,14 +42,3 @@
     </div>
 </div>
 
-<script>
-    function deleteCategory(categoryId) {
-        if (confirm("Bu kategoriyi silmek istediğinize emin misiniz?")) {
-            fetch(`/Admin/Category/DeleteCategory/${categoryId}`, {
-                method: 'DELETE'
-            }).then(() => {
-                window.location.href = "/Admin/Category/Index";
-            });
-        }
-    }
-</script>

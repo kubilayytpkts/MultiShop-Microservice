@@ -1,0 +1,39 @@
+﻿@using MultiShop.Dtos.AboutDtos
+@model ResultAboutDto
+
+@{
+    ViewData["Title"] = "UpdateAbout";
+    Layout = "~/Areas/Admin/Views/Layout/Admin.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="chart-box">
+        <h4>Kategori Düzenle</h4>
+        <!-- Main content -->
+        <section class="content container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="chart-box">
+                        <form method="post">
+                            <div class="form-group">
+                                <input type="hidden" readonly class="form-control" name="id" value="@Model.id">
+                                <br />
+                                <input type="text" read class="form-control" placeholder="Telefon Numarası" name="PhoneNumber" value="@Model.PhoneNumber">
+                                <br />
+                                <input type="text" read class="form-control" placeholder="Adres" name="Address" value="@Model.Address">
+                                <br />
+                                <input type="text" read class="form-control" placeholder="Email" name="Email" value="@Model.Email">
+                                <br />
+                                <textarea rows="4" type="text" read class="form-control" placeholder="Açıklama" name="Description">@Model.Description</textarea>
+                                <br />
+                            </div>
+                            <button type="submit" class="btn btn-success">Güncelle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- content -->
+    </div>
+</div>
+

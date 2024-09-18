@@ -1,0 +1,32 @@
+﻿@using MultiShop.Dtos.AboutDtos
+@model ResultAboutDto
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Layout/Admin.cshtml";
+}
+<div class="col-md-12">
+    <div class="chart-box">
+        <h4>Hakkımızda </h4>
+        <div class="bs-example" data-example-id="bordered-table">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Düzenle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <th scope="row">@Model.id</th>
+                            <td><a class="btn btn-primary" href="/Admin/About/UpdateAbout/@Model.id">Düzenle</a></td>
+                        </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+
