@@ -1,9 +1,10 @@
 ﻿@using MultiShop.Dtos.ProductImagesDtos
-@model ResultProductImageDto
+@model List<ResultProductImageDto>
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Layout/Admin.cshtml";
+    string productId = "";
 }
 
 <div class="col-md-12">
@@ -12,22 +13,41 @@
         <!-- Main content -->
         <section class="content container-fluid">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="chart-box">
-                        <form method="post">
-                            <div class="form-group">
-                                <input type="image" class="form-control" >
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="ImageUrl" placeholder="Kategori Görsel">
-                            </div>
-                            <button type="submit" class="btn btn-success">Ekle</button>
-                        </form>
+                @foreach (var item in Model)
+                {
+                    productId = item.ProductId;
+
+                    <div class="col-md-12">
+                        <div class="chart-box">
+                            <!-- Benzersiz ID'yi her form için kullanıyoruz -->
+                            <form method="post" enctype="multipart/form-data" id="uploadForm-@item.ProductImageId">
+                                <div class="form-group">
+                                    <input type="hidden" name="productId" value="@item.ProductId" />
+                                    <input type="hidden" name="ProductImageId" value="@item.ProductImageId" />
+                                    <img src="@item.ProductImages" class="form-control" style="height: 100px; width: 100px;" alt="Product Image" />
+                                    <input type="file" name="productImage" onchange="submitForm('@item.ProductImageId')" />
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                </div>
+                }
             </div>
+            <a href="/Admin/ProductImages/AddProductImages/@productId">
+                <button type="submit" class="btn btn-success">Yeni görsel ekle</button>
+            </a>
         </section>
         <!-- content -->
     </div>
 </div>
 
+<script>
+    function submitForm(productImageId) {
+        var formId = 'uploadForm-' + productImageId;
+        var form = document.getElementById(formId);
+        if (form) {
+            form.submit();
+        } else {
+            console.error('Form bulunamadı: ' + formId);
+        }
+    }
+</script>

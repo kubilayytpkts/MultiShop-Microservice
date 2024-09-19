@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "AddProductImages";
+    Layout = "~/Areas/Admin/Views/Layout/Admin.cshtml";
+}
+
+
+<div class="col-md-12">
+    <div class="chart-box">
+        <h4>Ürün Görseli Ekleme</h4>
+        <!-- Main content -->
+        <section class="content container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="chart-box">
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <input type="hidden" name="productId" value="@ViewData["productId"]" />
+                                <input type="file" class="form-control" name="productImage" required>
+                            </div>
+                            <button type="submit" class="btn btn-success">Ekle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- content -->
+    </div>
+</div>
+
